@@ -89,9 +89,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\menu.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-material\angular-material.layouts.min.css" />
+    <Content Include="Scripts\angular-material\angular-material.min.css" />
+    <Content Include="Scripts\angular-material\angular-material.min.js" />
+    <Content Include="Scripts\angular\1.4.8\angular-animate.min.js" />
+    <Content Include="Scripts\angular\1.4.8\angular-aria.min.js" />
+    <Content Include="Scripts\angular\1.4.8\angular.min.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Web.config" />
   </ItemGroup>
