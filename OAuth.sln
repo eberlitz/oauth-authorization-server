@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceServer", "OAuth\ResourceServer.csproj", "{BAF2FD76-0D3B-47DD-B8F2-561E3D275589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{167B1FCF-FE2A-4B29-B6C5-F9A8464694C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAF2FD76-0D3B-47DD-B8F2-561E3D275589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF2FD76-0D3B-47DD-B8F2-561E3D275589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF2FD76-0D3B-47DD-B8F2-561E3D275589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF2FD76-0D3B-47DD-B8F2-561E3D275589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167B1FCF-FE2A-4B29-B6C5-F9A8464694C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167B1FCF-FE2A-4B29-B6C5-F9A8464694C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167B1FCF-FE2A-4B29-B6C5-F9A8464694C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167B1FCF-FE2A-4B29-B6C5-F9A8464694C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

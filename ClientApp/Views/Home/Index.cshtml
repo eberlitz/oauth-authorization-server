@@ -1,0 +1,82 @@
+﻿
+<div ng-controller="HomeController as vm">
+    <md-button class="md-raised md-primary" ng-click="vm.requestProtectedResource()">
+        Obter recurso protegido
+    </md-button>
+
+    <p><b>AccessToken:</b>{{vm.accessToken}}</p>
+    <p><b>Recurso:</b>{{vm.resource}}</p>
+
+    <md-input-container>
+        <label>Usuário</label>
+        <input ng-model="vm.user.login" type="text">
+    </md-input-container>
+
+    <md-input-container>
+        <label>Senha</label>
+        <input ng-model="vm.user.password" type="password">
+    </md-input-container>
+
+    <md-button class="md-raised md-primary" ng-click="vm.authorize(vm.user)">
+        Obter Access Token
+    </md-button>
+
+</div>
+
+
+
+
+@section scripts {
+    <script>
+        angular.module('app')
+        .controller('HomeController', function ($http, $mdDialog) {
+            var vm = this;
+            var SERVER_URI = 'http://localhost:9154/';
+            angular.extend(this, {
+                resource: null,
+                accessToken: null,
+                user: {},
+                requestProtectedResource: requestProtectedResource,
+                authorize: authorize
+            });
+            // --------------------------------------------
+            function requestProtectedResource() {
+                vm.resource = null;
+                var headers = {};
+                if (vm.accessToken) {
+                    headers = {
+                        "Authorization": "Bearer " + vm.accessToken
+                    };
+                }
+                $http.get(SERVER_URI + 'api/me', {
+                    headers: headers
+                }).success(function (data) {
+                    vm.resource = data;
+                }).error(function (data) {
+                    vm.resource = data;
+                });
+            }
+
+            function authorize(user) {
+                if (user && user.login && user.password) {
+                    var data = "grant_type=password&username=" + user.login + "&password=" + user.password + "&client_id=teste";
+                    $http.post(SERVER_URI + 'OAuth/token', data).success(function (data) {
+                        vm.accessToken = data.access_token;
+                    }).error(function (data) {
+                        vm.resource = data;
+                    });
+                } else {
+                    $mdDialog.show(
+                      $mdDialog.alert()
+                        .parent(angular.element(document.querySelector('#content')))
+                        .clickOutsideToClose(true)
+                        .title('Erro')
+                        .content('Usuário e senha devem ser informados!')
+                        .ok('Ok!')
+                    );
+                }
+            }
+
+        });
+    </script>
+}
